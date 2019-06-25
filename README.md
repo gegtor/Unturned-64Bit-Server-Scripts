@@ -28,7 +28,7 @@ Tested on Ubuntu 16.04
     rm -r Rocket.Unturned/ RocketLauncher.exe
 
 ## 5. Copy Steam lib just to be on the safe side
-    cp Steam_CMD/linux64/steamclient.so /lib
+    sudo cp Steam_CMD/linux64/steamclient.so /lib
 
 ## 6. Start your new server!
     ./start.sh <instance_name>
