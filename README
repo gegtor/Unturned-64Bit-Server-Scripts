@@ -1,0 +1,33 @@
+Tested on Ubuntu 16.04
+
+0. Install these prerequisites
+    sudo apt-get install screen htop unzip                                  # Usefull utilities
+    sudo apt-get install lib32stdc++6                                       # SteamCMD dependencies
+    sudo apt-get install mono-runtime mono-reference-assemblies-2.0         # Unity env
+    sudo apt-get install libc6 libgl1-mesa-glx libxcursor1 libxrandr2       # 64 bit prerequisites for Unity 3D
+    sudo apt-get install libc6-dev libgcc-4.8-dev                           # prerequisites for BattlEye
+
+1. Set correct script permissions and allow them to execute
+    sudo chmod +x start.sh
+    sudo chmod +x update.sh
+
+2. Install the game
+    ./update.sh
+
+3. Copy Rocket module and exe and then delete them
+    cp -r Rocket.Unturned/ Unturned_Server/
+    cp RocketLauncher.exe Unturned_Server/
+
+    rm -r Rocket.Unturned/ RocketLauncher.exe
+
+4. Copy Steam lib just to be on the safe side
+    cp Steam_CMD/linux64/steamclient.so /lib
+
+5. Start your new server! Example ./start.sh server-1
+    ./start.sh <instance_name>
+
+6. To prevent server from being closed when exiting ssh session run it in screen
+    screen -S <screen_name>
+    ./start.sh <instance_name>
+
+    screen -x <screen_name> to return to your screen
