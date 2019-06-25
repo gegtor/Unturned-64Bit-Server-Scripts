@@ -1,4 +1,6 @@
-Tested on Ubuntu 16.04
+Tested and confirmed working on 
+    Ubuntu 16.04 LTS
+    Ubuntu 18.04 LTS
 
 ## 0. Download and extract files in your home dir
     wget https://github.com/gegtor/Unturned-64Bit-Server-Scripts/archive/master.zip
