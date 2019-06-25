@@ -22,7 +22,7 @@ Tested on Ubuntu 16.04
     ./update.sh
 
 ## 4. Copy Rocket module and exe and then delete them
-    cp -r Rocket.Unturned/ Unturned_Server/
+    cp -r Rocket.Unturned/ Unturned_Server/Modules/
     cp RocketLauncher.exe Unturned_Server/
 
     rm -r Rocket.Unturned/ RocketLauncher.exe
