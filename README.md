@@ -10,7 +10,7 @@ Tested on Ubuntu 16.04
 ## 1. Install these prerequisites
     sudo apt-get install screen htop unzip                                   # Usefull utilities
     sudo apt-get install lib32stdc++6                                        # SteamCMD dependencies
-    sudo apt-get install mono-runtime mono-reference-assemblies-2.0.         # Unity env
+    sudo apt-get install mono-runtime mono-reference-assemblies-2.0v         # Unity env
     sudo apt-get install libc6 libgl1-mesa-glx libxcursor1 libxrandr2        # 64 bit prerequisites for Unity 3D
     sudo apt-get install libc6-dev libgcc-4.8-dev                            # prerequisites for BattlEye
 
