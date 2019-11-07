@@ -2,19 +2,19 @@
     Ubuntu 16.04 LTS
     Ubuntu 18.04 LTS
 
-## 0. Download and extract files in your home dir
-    wget https://github.com/gegtor/Unturned-64Bit-Server-Scripts/archive/master.zip
-    unzip master.zip
-    rm master.zip
-    cp -r Unturned-64Bit-Server-Scripts-master/* ~/
-    rm -r Unturned-64Bit-Server-Scripts-master/
-
-## 1. Install these prerequisites
+## 0. Install these prerequisites
     sudo apt-get install screen htop unzip                                   # Usefull utilities
     sudo apt-get install lib32stdc++6                                        # SteamCMD dependencies
     sudo apt-get install mono-runtime mono-reference-assemblies-2.0          # Unity env
     sudo apt-get install libc6 libgl1-mesa-glx libxcursor1 libxrandr2        # 64 bit prerequisites for Unity 3D
     sudo apt-get install libc6-dev libgcc-4.8-dev                            # prerequisites for BattlEye
+    
+## 1. Download and extract files in your home dir
+    wget https://github.com/gegtor/Unturned-64Bit-Server-Scripts/archive/master.zip
+    unzip master.zip
+    rm master.zip
+    cp -r Unturned-64Bit-Server-Scripts-master/* ~/
+    rm -r Unturned-64Bit-Server-Scripts-master/
 
 ## 2. Set correct script permissions and allow them to execute
     sudo chmod +x start.sh
