@@ -1,4 +1,4 @@
-## Tested and confirmed working on 
+## Tested and confirmed working on (Still working as of April 18th 2020)
     Ubuntu 16.04 LTS
     Ubuntu 18.04 LTS
 
