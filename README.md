@@ -1,18 +1,18 @@
-## Tested and confirmed working on (As of April 18th 2020)
+## Tested and confirmed working on (As of July 20th 2020)
     Ubuntu 16.04 LTS
     Ubuntu 18.04 LTS
+    Debian 9
+    Debian 10
 
 ## 0. Install these prerequisites
-    sudo apt-get install screen htop unzip                                   # Usefull utilities
+    sudo apt-get install screen htop unzip git                               # Usefull utilities
     sudo apt-get install lib32stdc++6                                        # SteamCMD dependencies
     sudo apt-get install mono-runtime mono-reference-assemblies-2.0          # Unity env
     sudo apt-get install libc6 libgl1-mesa-glx libxcursor1 libxrandr2        # 64 bit prerequisites for Unity 3D
     sudo apt-get install libc6-dev libgcc-4.8-dev                            # prerequisites for BattlEye
-    
+
 ## 1. Download and extract files in your home dir
-    wget https://github.com/gegtor/Unturned-64Bit-Server-Scripts/archive/master.zip
-    unzip master.zip
-    rm master.zip
+    git clone https://github.com/gegtor/Unturned-64Bit-Server-Scripts
     cp -r Unturned-64Bit-Server-Scripts-master/* ~/
     rm -r Unturned-64Bit-Server-Scripts-master/
 

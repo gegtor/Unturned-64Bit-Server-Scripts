@@ -1,43 +1,31 @@
 #!/bin/bash
-# This script starts a Unturned 3 server on Linux machines
-# To start servers with this script, place it next to Unturned.exe
-# Syntax: start.sh <instance name>
-# Author: fr34kyn01535
 
-export MONO_IOMAP=all
+# This is a modified server-helper script full credit goes to Nelson
 
-#CONFIG
-INSTANCE_NAME=$1
-STEAMCMD_HOME="$PWD/Steam_CMD"
-UNTURNED_HOME="$PWD/Unturned_Server"
+# To mark this script as executable you may need to run "chmod +x ServerHelper.sh"
 
-#COLORS
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLLOW='\033[0;33m'
-NC='\033[0m'
-
-#Steam checks
-STEAMCMD_API=$STEAMCMD_HOME/linux64/steamclient.so
-UNTURNED_API=$UNTURNED_HOME/Unturned_Headless_Data/Plugins/x86_64/steamclient.so
-printf "Steam: "
-if [ -f $STEAMCMD_API ]; then
-	if diff $STEAMCMD_API $UNTURNED_API >/dev/null ; then
-		printf "${GREEN}UP TO DATE${NC}\n\n"
-	else
-		cp $STEAMCMD_API $UNTURNED_API
-		printf "${YELLLOW}UPDATING${NC}\n\n"
-	fi
+# Unity will load the steamclient file from the plugins directory, so we copy it there.
+# As of 2020-05-14 there are crashes with the official redist version that do not seem
+# to be present in the steamcmd version, so we use that instead if available.
+redist_steamclient=linux64/steamclient.so
+steamcmd_steamclient=../../../linux64/steamclient.so
+unturned_steamclient=Unturned_Headless_Data/Plugins/x86_64/steamclient.so
+if [[ -f $steamcmd_steamclient ]]
+then
+    cp -f $steamcmd_steamclient $unturned_steamclient
 else
-	printf "${RED}NOT FOUND${NC}\n\n"
+    cp -f $redist_steamclient $unturned_steamclient
 fi
 
-cd $UNTURNED_HOME
+# Tell system where to find the steamclient.so we just copied. Without this
+# command API Init will fail with an unable to find file error.
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`dirname $0`/Unturned_Headless_Data/Plugins/x86_64/
 
-if [ -f RocketLauncher.exe ]; then
-	ulimit -n 2048
-	export LD_LIBRARY_PATH=$UNTURNED_HOME/lib:$LD_LIBRARY_PATH
-	mono RocketLauncher.exe $INSTANCE_NAME
-else
-	echo "RocketLauncher not found."
-fi
+# Terminal mode compatible with -logfile 2>&1 IO.
+export TERM=xterm
+
+# Run the server binary.
+# -batchmode and -nographics are Unity player arguments.
+# -logfile 2>&1 can be used to pipe IO to/from the terminal.
+# "$@" appends any command-line arguments passed to this script.
+./Unturned_Server/Unturned_Headless.x86_64 -batchmode -nographics -ThreadedConsole +LanServer/"$@"
