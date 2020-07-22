@@ -13,8 +13,8 @@
 
 ## 1. Download and extract files in your home dir
     git clone https://github.com/gegtor/Unturned-64Bit-Server-Scripts
-    cp -r Unturned-64Bit-Server-Scripts-master/* ~/
-    rm -r Unturned-64Bit-Server-Scripts-master/
+    cp Unturned-64Bit-Server-Scripts/* ~/
+    rm -r Unturned-64Bit-Server-Scripts/ README.md
 
 ## 2. Set correct script permissions and allow them to execute
     sudo chmod +x start.sh
@@ -23,11 +23,8 @@
 ## 3. Install the game
     ./update.sh
 
-## 4. Copy Rocket module and exe and then delete them
-    cp -r Rocket.Unturned/ Unturned_Server/Modules/
-    cp RocketLauncher.exe Unturned_Server/
-
-    rm -r Rocket.Unturned/ RocketLauncher.exe
+## 4. Copy LDM module
+    cp -r Unturned_Server/Extras/Rocket.Unturned/ Unturned_Server/Modules/
 
 ## 5. Copy Steam lib just to be on the safe side
     sudo cp Steam_CMD/linux64/steamclient.so /lib
@@ -41,3 +38,7 @@
     ./start.sh <instance_name>
 
     screen -x <screen_name> to return to your screen
+    
+## 8. How to update?
+    ./update.sh
+    Do step 4 to update LDM if necessary 
